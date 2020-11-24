@@ -17,6 +17,10 @@
 			],
 			"volumes": [
 				{
+					  "container": "/",
+					  "bind": "/home/%PORTAINER_LOGIN%/projects/%PROJECT_NAME%"
+				},
+				{
 					  "container": "/app",
 					  "bind": "/home/%PORTAINER_LOGIN%/projects/%PROJECT_NAME%/public_html"
 				},
