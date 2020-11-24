@@ -11,17 +11,21 @@
 			"platform": "linux",
 			"logo": "https://www.cloudron.io/blog/img/lamp.png",
 			"image": "mattrayner/lamp:latest-1804",
-			"name": "PROJECT_NAME",
+			"name": "%PROJECT_NAME%_lamp",
 			"ports": [
 				"80:80/tcp"
 			],
 			"volumes": [
-        {
-				  "container": "/app",
-				  "bind": "/home/PORTAINER_LOGIN/projects/PROJECT_NAME/public_html"
-			  }
-      ],
-			"hostname": "PORTAINER_LOGIN.PROJECT_NAME.loc"
+				{
+					  "container": "/app",
+					  "bind": "/home/%PORTAINER_LOGIN%/projects/%PROJECT_NAME%/public_html"
+				},
+				{
+					  "container": "/mysql",
+					  "bind": "/home/%PORTAINER_LOGIN%/containers_data/%PROJECT_NAME%_lamp/mysql"
+				}
+			],
+			"hostname": "%PROJECT_NAME%.loc"
 		}
 	]
 }
